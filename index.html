@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<head>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/jgthms/minireset.css/master/minireset.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="index.css">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios@0.12.0/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/lodash@4.13.1/lodash.min.js"></script>
+    <title>Magic 8 Ball</title>
+</head>
+<body>
+<main id="app">
+    <input type="text" v-model="question" placeholder="Ask a yes/no question" autofocus>
+    <p>{{ answer }}</p>
+    <img :src="image"/>
+</main>
+<script src="index.js"></script>
+</body>
+</html>
