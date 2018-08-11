@@ -3,7 +3,7 @@ var app = new Vue({
     data: {
         question: '',
         answer: 'I cannot give you an answer until you ask a question!',
-        image: '',
+        image: '8ball.png',
         tag: {
             affirmative: 'yes',
             contrary: 'no',
@@ -14,6 +14,7 @@ var app = new Vue({
         // whenever question changes, this function will run
         question: function (newQuestion, oldQuestion) {
             this.answer = 'Waiting for you to stop typing...';
+            this.image = '8ball.png';
             this.debouncedGetAnswer()
         }
     },
