@@ -13,8 +13,7 @@
 <body>
 <main id="app">
     <input type="text" v-model="question" placeholder="Ask a yes/no question" autofocus>
-    <p>{{ answer }}</p>
-    <img :class="{ wobble: loading }" :src="image"/>
+    <magic-8-ball :question="question"></magic-8-ball>
 </main>
 <script src="index.js"></script>
 </body>

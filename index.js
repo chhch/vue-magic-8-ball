@@ -1,15 +1,16 @@
-var app = new Vue({
-    el: '#app',
-    data: {
-        question: '',
-        answer: 'I cannot give you an answer until you ask a question!',
-        image: '8ball.png',
-        tag: {
-            affirmative: 'yes',
-            contrary: 'no',
-            neutral: 'don\'t know'
-        },
-        loading: false
+Vue.component('magic-8-ball', {
+    props: ['question'],
+    data: function () {
+        return {
+            answer: 'I cannot give you an answer until you ask a question!',
+            image: '8ball.png',
+            tag: {
+                affirmative: 'yes',
+                contrary: 'no',
+                neutral: 'don\'t know'
+            },
+            loading: false
+        }
     },
     watch: {
         // whenever question changes, this function will run
@@ -54,5 +55,18 @@ var app = new Vue({
                     vm.loading = false;
                 })
         }
+    },
+    template: `
+        <div style="display: flex; flex-direction: column; align-items: center; ">
+          <p>{{ answer }}</p>
+          <img :class="{ wobble: loading }" :src="image"/>
+        </div>
+    `
+});
+
+var app = new Vue({
+    el: '#app',
+    data: {
+        question: ''
     }
 });
