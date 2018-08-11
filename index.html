@@ -14,7 +14,7 @@
 <main id="app">
     <input type="text" v-model="question" placeholder="Ask a yes/no question" autofocus>
     <p>{{ answer }}</p>
-    <img :src="image"/>
+    <img :class="{ wobble: loading }" :src="image"/>
 </main>
 <script src="index.js"></script>
 </body>

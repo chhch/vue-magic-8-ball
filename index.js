@@ -8,14 +8,16 @@ var app = new Vue({
             affirmative: 'yes',
             contrary: 'no',
             neutral: 'don\'t know'
-        }
+        },
+        loading: false
     },
     watch: {
         // whenever question changes, this function will run
         question: function (newQuestion, oldQuestion) {
             this.answer = 'Waiting for you to stop typing...';
             this.image = '8ball.png';
-            this.debouncedGetAnswer()
+            this.loading = true;
+            this.debouncedGetAnswer();
         }
     },
     created: function () {
@@ -40,14 +42,16 @@ var app = new Vue({
                         media_filter: 'minimal',
                         limit: '1'
                     };
-                    return axios.get('https://api.tenor.com/v1/random', {params: params });
-
+                    return axios.get('https://api.tenor.com/v1/random', {params: params});
                 })
                 .then(function (response) {
                     vm.image = response.data.results[0].media[0].gif.url;
                 })
                 .catch(function (error) {
-                    vm.answer = 'Error! Could not reach the API. ' + error
+                    vm.answer = 'Error! Could not reach the API. ' + error;
+                })
+                .then(function () {
+                    vm.loading = false;
                 })
         }
     }
