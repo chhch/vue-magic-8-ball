@@ -1,1 +1,1 @@
-# Vue Example
+# Vue.js Example
