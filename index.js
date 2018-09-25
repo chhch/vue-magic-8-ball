@@ -28,6 +28,7 @@ Vue.component('magic-8-ball', {
         getAnswer: function () {
             if (this.question.indexOf('?') === -1) {
                 this.answer = 'Questions usually contain a question mark. ;-)';
+                this.loading = false;
                 return
             }
             this.answer = 'Thinking...';
